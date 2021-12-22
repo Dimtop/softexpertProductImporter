@@ -1,0 +1,339 @@
+
+#####################
+Initialized import
+#####################
+
+
+Begenning the creation of product ﻿00108
+Term ΠΡΑΣΙΝ.ΚΥΝ already exists. Doing what's necessary.
+Term ΜΠΛΕ already exists. Doing what's necessary.
+Term ΕΚΡΟΥ already exists. Doing what's necessary.
+Term ΠΡΑΣΙΝΟ already exists. Doing what's necessary.
+Term    6 already exists. Doing what's necessary.
+Term    9 already exists. Doing what's necessary.
+Term   12 already exists. Doing what's necessary.
+Term   18 already exists. Doing what's necessary.
+Term   24 already exists. Doing what's necessary.
+Term    2 already exists. Doing what's necessary.
+Term    3 already exists. Doing what's necessary.
+Term    4 already exists. Doing what's necessary.
+Term    5 already exists. Doing what's necessary.
+Term    7 already exists. Doing what's necessary.
+Term    8 already exists. Doing what's necessary.
+Term   10 already exists. Doing what's necessary.
+Term   14 already exists. Doing what's necessary.
+Term   16 already exists. Doing what's necessary.
+Term Baby αγορι           already exists. Doing what's necessary.
+Term Μπλουζακι μακρυμανικο     already exists. Doing what's necessary.
+Updated categories hierarchy. Moving on.
+Product ﻿00108 exists. We will update it.
+Product 3121 has been created. We will now set the attributes, categories and some product data.
+Product 3121 has been finished.
+Beginning the creation of variation ﻿00108
+Creating the variation's attributes and adding some data.
+The variation 3122 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3123 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3124 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3125 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3126 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3127 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3128 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3129 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3130 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3131 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3132 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3133 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3134 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3135 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3136 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3137 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3138 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3139 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3140 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3141 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3142 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3143 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3144 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3145 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3146 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3147 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3148 has been finished.
+
+
+Begenning the creation of product 00502
+Term ΧΡΥΣΑΦΙ already exists. Doing what's necessary.
+Term    6 already exists. Doing what's necessary.
+Term    9 already exists. Doing what's necessary.
+Term   12 already exists. Doing what's necessary.
+Term   18 already exists. Doing what's necessary.
+Term   24 already exists. Doing what's necessary.
+Term Baby αγορι           already exists. Doing what's necessary.
+Term Παντελονι μακρυ           already exists. Doing what's necessary.
+Updated categories hierarchy. Moving on.
+Product 00502 exists. We will update it.
+Product 3149 has been created. We will now set the attributes, categories and some product data.
+Product 3149 has been finished.
+Beginning the creation of variation 00502
+Creating the variation's attributes and adding some data.
+The variation 3150 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3151 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3152 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3153 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3154 has been finished.
+
+
+Begenning the creation of product 00513
+Term ΤΖΙΝΤΖΕΡ already exists. Doing what's necessary.
+Term    2 already exists. Doing what's necessary.
+Term    3 already exists. Doing what's necessary.
+Term    4 already exists. Doing what's necessary.
+Term    5 already exists. Doing what's necessary.
+Term    6 already exists. Doing what's necessary.
+Term    7 already exists. Doing what's necessary.
+Term    8 already exists. Doing what's necessary.
+Term Μεσαιο αγορι         already exists. Doing what's necessary.
+Term Παντελονι μακρυ           already exists. Doing what's necessary.
+Updated categories hierarchy. Moving on.
+Product 00513 exists. We will update it.
+Product 3155 has been created. We will now set the attributes, categories and some product data.
+Product 3155 has been finished.
+Beginning the creation of variation 00513
+Creating the variation's attributes and adding some data.
+The variation 3156 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3157 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3158 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3159 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3160 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3161 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3162 has been finished.
+
+
+Begenning the creation of product 00516
+Term ΜΑΥΡΟ already exists. Doing what's necessary.
+Term    8 already exists. Doing what's necessary.
+Term   10 already exists. Doing what's necessary.
+Term   12 already exists. Doing what's necessary.
+Term   14 already exists. Doing what's necessary.
+Term   16 already exists. Doing what's necessary.
+Term Αγορι                already exists. Doing what's necessary.
+Term Παντελονι μακρυ           already exists. Doing what's necessary.
+Updated categories hierarchy. Moving on.
+Product 00516 exists. We will update it.
+Product 3163 has been created. We will now set the attributes, categories and some product data.
+Product 3163 has been finished.
+Beginning the creation of variation 00516
+Creating the variation's attributes and adding some data.
+The variation 3164 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3165 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3166 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3167 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3168 has been finished.
+
+
+Begenning the creation of product 00563
+Term ΩΧΡΑ already exists. Doing what's necessary.
+Term    6 already exists. Doing what's necessary.
+Term    9 already exists. Doing what's necessary.
+Term   12 already exists. Doing what's necessary.
+Term   18 already exists. Doing what's necessary.
+Term   24 already exists. Doing what's necessary.
+Term Baby αγορι           already exists. Doing what's necessary.
+Term Παντελονι μακρυ           already exists. Doing what's necessary.
+Updated categories hierarchy. Moving on.
+Product 00563 exists. We will update it.
+Product 3169 has been created. We will now set the attributes, categories and some product data.
+Product 3169 has been finished.
+Beginning the creation of variation 00563
+Creating the variation's attributes and adding some data.
+The variation 3170 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3171 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3172 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3173 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3174 has been finished.
+
+
+Begenning the creation of product 00578
+Term ΓΚΡΙ ΜΕΣΑΙ already exists. Doing what's necessary.
+Term ΤΖΙΝ ΣΚΟΥΡ already exists. Doing what's necessary.
+Term    8 already exists. Doing what's necessary.
+Term   10 already exists. Doing what's necessary.
+Term   12 already exists. Doing what's necessary.
+Term   14 already exists. Doing what's necessary.
+Term   16 already exists. Doing what's necessary.
+Term Κοριτσι              already exists. Doing what's necessary.
+Term Παντελονι μακρυ           already exists. Doing what's necessary.
+Updated categories hierarchy. Moving on.
+Product 00578 exists. We will update it.
+Product 3175 has been created. We will now set the attributes, categories and some product data.
+Product 3175 has been finished.
+Beginning the creation of variation 00578
+Creating the variation's attributes and adding some data.
+The variation 3176 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3177 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3178 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3179 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3180 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3181 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3182 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3183 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3184 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3185 has been finished.
+
+
+Begenning the creation of product 02064
+Term ΚΟΚΚΙΝΟ already exists. Doing what's necessary.
+Term    6 already exists. Doing what's necessary.
+Term    9 already exists. Doing what's necessary.
+Term   12 already exists. Doing what's necessary.
+Term   18 already exists. Doing what's necessary.
+Term   24 already exists. Doing what's necessary.
+Term Baby αγορι           already exists. Doing what's necessary.
+Term Μπλουζακι μακρυμανικο     already exists. Doing what's necessary.
+Updated categories hierarchy. Moving on.
+Product 02064 exists. We will update it.
+Product 3186 has been created. We will now set the attributes, categories and some product data.
+Product 3186 has been finished.
+Beginning the creation of variation 02064
+Creating the variation's attributes and adding some data.
+The variation 3187 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3188 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3189 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3190 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3191 has been finished.
+
+
+Begenning the creation of product 02066
+Term ΧΡΥΣΑΦΙ already exists. Doing what's necessary.
+Term    6 already exists. Doing what's necessary.
+Term    9 already exists. Doing what's necessary.
+Term   12 already exists. Doing what's necessary.
+Term   18 already exists. Doing what's necessary.
+Term   24 already exists. Doing what's necessary.
+Term Baby αγορι           already exists. Doing what's necessary.
+Term Μπλουζακι μακρυμανικο     already exists. Doing what's necessary.
+Updated categories hierarchy. Moving on.
+Product 02066 exists. We will update it.
+Product 3192 has been created. We will now set the attributes, categories and some product data.
+Product 3192 has been finished.
+Beginning the creation of variation 02066
+Creating the variation's attributes and adding some data.
+The variation 3193 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3194 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3195 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3196 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3197 has been finished.
+
+
+Begenning the creation of product 02067
+Term ΜΠΛΕ already exists. Doing what's necessary.
+Term    6 already exists. Doing what's necessary.
+Term    9 already exists. Doing what's necessary.
+Term   12 already exists. Doing what's necessary.
+Term   18 already exists. Doing what's necessary.
+Term   24 already exists. Doing what's necessary.
+Term Baby αγορι           already exists. Doing what's necessary.
+Term Μπλουζακι μακρυμανικο     already exists. Doing what's necessary.
+Updated categories hierarchy. Moving on.
+Product 02067 exists. We will update it.
+Product 3198 has been created. We will now set the attributes, categories and some product data.
+Product 3198 has been finished.
+Beginning the creation of variation 02067
+Creating the variation's attributes and adding some data.
+The variation 3199 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3200 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3201 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3202 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3203 has been finished.
+
+
+Begenning the creation of product 02068
+Term ΠΡΑΣΙΝ.ΚΥΝ already exists. Doing what's necessary.
+Term    6 already exists. Doing what's necessary.
+Term    9 already exists. Doing what's necessary.
+Term   12 already exists. Doing what's necessary.
+Term   18 already exists. Doing what's necessary.
+Term   24 already exists. Doing what's necessary.
+Term Baby αγορι           already exists. Doing what's necessary.
+Term Μπλουζακι μακρυμανικο     already exists. Doing what's necessary.
+Updated categories hierarchy. Moving on.
+Product 02068 exists. We will update it.
+Product 3204 has been created. We will now set the attributes, categories and some product data.
+Product 3204 has been finished.
+Beginning the creation of variation 02068
+Creating the variation's attributes and adding some data.
+The variation 3205 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3206 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3207 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3208 has been finished.
+Creating the variation's attributes and adding some data.
+The variation 3209 has been finished.
+
+Done!!!!
