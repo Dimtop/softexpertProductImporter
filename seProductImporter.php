@@ -46,7 +46,8 @@ function runImport(){
             move_uploaded_file($_FILES['sepiFile']['tmp_name'], $fileName);
             $csvp = new CSVParser($fileName);
             $data = $csvp->getData();
-            $we = new WoocommerceEngine($data);
+            $data = array_slice($data,0,10);
+            $we = new WoocommerceEngine($data,$_POST["mode"]);
             $we->createProducts();
             //echo json_encode($we->getLogFilePath());
 

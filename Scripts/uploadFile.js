@@ -6,7 +6,9 @@ jQuery("#sepiUpload").click(()=>{
         alert("Please select a file");
         return;
     }
+    var mode = jQuery("#sepiMode").val();
     fd.append("sepiFile",file);
+    fd.append("mode",mode)
     fd.append("action","runImport");
 
     jQuery.ajax({

@@ -11,11 +11,16 @@ class WoocommerceEngine{
     private $logFile;
     private $logFileName;
     private $logFilePath;
+    private $mode;
+    private $includedProducts;
 
-    public function __construct($csvDataToSet)
+    public function __construct($csvDataToSet,$modeToSet)
     {
         $this->csvData = $csvDataToSet;
         $this->createLogFile();
+
+        $this->mode = $modeToSet;
+        $this->includedProducts = [];
     }
 
     private function createLogFile(){
@@ -255,16 +260,19 @@ class WoocommerceEngine{
         $existingProduct = wc_get_product($existingProductID);
         if($existingProduct){
             fwrite($this->logFile , "\n" . "Product " . $productData["sku"] . " exists. We will update it.");
-            if ($existingProduct->is_type('variable'))
+            if ($existingProduct->is_type('variable') && get_post_status($existingProductID)=="publish")
             {
-                foreach ($existingProduct->get_children() as $child_id)
+                /*foreach ($existingProduct->get_children() as $child_id)
                 {
                     $child = wc_get_product($child_id);
                     $child->delete(true);
-                }
+                }*/
             }
-            $existingProduct->delete(true);
+            //$existingProduct->delete(true);
+            fwrite($this->logFile , "\n" . "The product ID that is going to be used is " . $existingProductID);
+            return $existingProductID;
         }
+        return false;
     }
 
     private function createParentProduct($productData){
@@ -273,7 +281,7 @@ class WoocommerceEngine{
         fwrite($this->logFile , "\n" . "Begenning the creation of product " .   $productData["sku"]);
        $this->manageParentAttributes($productData);
        $this->manageParentCategories($productData);
-       $this->manageExistingParentProduct($productData);
+       $existingProductID = $this->manageExistingParentProduct($productData);
         $parentProductData= array(
             'post_author'   => 1,
             'post_name'     => $productData["name"],
@@ -284,25 +292,58 @@ class WoocommerceEngine{
             'ping_status'   => 'closed',
             'post_type'     => 'product'
         );
+
+
         //Parent product creation
-        $parentProductID = wp_insert_post( $parentProductData );
-        $parentProduct = new WC_Product_Variable( $parentProductID );
-        $parentProduct->save();
-        fwrite($this->logFile , "\n" . "Product " .   $parentProductID  . " has been created. We will now set the attributes, categories and some product data.");
-        //Attributes
-        update_post_meta($parentProductID,"_product_attributes",$this->constructProductAttributeMeta($productData));
-        $this->writeParentProductAttributes($productData,$parentProductID);
+        if($existingProductID){
+            $parentProductData["ID"] = $existingProductID;
+            wp_insert_post( $parentProductData );
+            $parentProduct = new WC_Product_Variable( $existingProductID );
 
-        //Categories
-        $this->writeParentProductCategories($productData,$parentProductID);
+            //Attributes
+            update_post_meta($existingProductID,"_product_attributes",$this->constructProductAttributeMeta($productData));
+            $this->writeParentProductAttributes($productData,$existingProductID);
 
-        //Data
-        $parentProduct->set_sku( $productData["sku"] );
-        update_post_meta($parentProductID,"_stock_status","instock");
-        $parentProduct->save();
-        fwrite($this->logFile , "\n" . "Product " .   $parentProductID  . " has been finished.");
+            //Categories
+            $this->writeParentProductCategories($productData,$existingProductID);
 
-        return $parentProductID;
+            //Data
+            $parentProduct->set_sku( $productData["sku"] );
+            update_post_meta($existingProductID,"_stock_status","instock");
+            $parentProduct->save();
+
+            //Include product
+            $this->includedProducts[] = $existingProductID;
+
+            return $existingProductID;
+        }else{
+            $parentProductID = wp_insert_post( $parentProductData );
+            $parentProduct = new WC_Product_Variable( $parentProductID );
+            //$parentProduct->save();
+            fwrite($this->logFile , "\n" . "Product " .   $parentProductID  . " has been created. We will now set the attributes, categories and some product data.");
+
+            //Attributes
+            update_post_meta($parentProductID,"_product_attributes",$this->constructProductAttributeMeta($productData));
+            $this->writeParentProductAttributes($productData,$parentProductID);
+
+            //Categories
+            $this->writeParentProductCategories($productData,$parentProductID);
+
+            //Data
+            $parentProduct->set_sku( $productData["sku"] );
+            update_post_meta($parentProductID,"_stock_status","instock");
+            $parentProduct->save();
+            fwrite($this->logFile , "\n" . "Product " .   $parentProductID  . " has been finished.");
+
+
+            //Include product
+            $this->includedProducts[] = $parentProductID;
+
+            return $parentProductID;
+        }
+
+
+
 
     }
 
@@ -317,21 +358,44 @@ class WoocommerceEngine{
                 'post_parent' => $parentProductID,
                 'post_type'   => 'product_variation'
             );
-            $currVariationID = wp_insert_post( $currVariationData );
-            $currVariation = new WC_Product_Variation( $currVariationID );
+            $existingVariationID = wc_get_product_id_by_sku( $val["sku"] );
+            $existingVariation = wc_get_product($existingVariationID);
+            if($existingVariation){
+                fwrite($this->logFile , "\n" . "The variation " . $val["sku"] . " already exists. We will update it." );
+                $currVariationData["ID"] = $existingVariationID;
+                wp_update_post( $currVariationData );
+                $currVariation = new WC_Product_Variation( $existingVariationID );
+                $this->writeVariationAttributes($val,$existingVariationID);
+                $currVariation->set_sku( $val['sku'] );
+                $currVariation->set_price( $val['regular_price'] );
+                $currVariation->set_regular_price( $val['regular_price'] );
+                $currVariation->set_manage_stock(false);
+                update_post_meta($existingVariationID,"_stock_status","instock");
+                $currVariation->save();
+                //Include product
+                $this->includedProducts[] = $existingVariationID;
+            }else{
+                $currVariationID = wp_insert_post( $currVariationData );
+                $currVariation = new WC_Product_Variation( $currVariationID );
 
-            fwrite($this->logFile , "\n" . "Creating the variation's attributes and adding some data." );
-            //Attributes
-            $this->writeVariationAttributes($val,$currVariationID);
+                fwrite($this->logFile , "\n" . "Creating the variation's attributes and adding some data." );
+                //Attributes
+                $this->writeVariationAttributes($val,$currVariationID);
 
-            //Data
-            $currVariation->set_sku( $val['sku'] );
-            $currVariation->set_price( $val['regular_price'] );
-            $currVariation->set_regular_price( $val['regular_price'] );
-            $currVariation->set_manage_stock(false);
-            update_post_meta($currVariationID,"_stock_status","instock");
-            $currVariation->save();
-            fwrite($this->logFile , "\n" . "The variation ". $currVariationID . " has been finished." );
+                //Data
+                $currVariation->set_sku( $val['sku'] );
+                $currVariation->set_price( $val['regular_price'] );
+                $currVariation->set_regular_price( $val['regular_price'] );
+                $currVariation->set_manage_stock(false);
+                update_post_meta($currVariationID,"_stock_status","instock");
+                $currVariation->save();
+                fwrite($this->logFile , "\n" . "The variation ". $currVariationID . " has been finished." );
+
+                //Include product
+                $this->includedProducts[] = $currVariationID;
+            }
+
+
         }
     }
 
@@ -345,10 +409,26 @@ class WoocommerceEngine{
             $this->createVariations($parentProductID,$val);
 
         }
+        $this->draftNotExistingProducts();
         fwrite($this->logFile , "\n\n" );
         fwrite($this->logFile , "Done!!!!" );
         $this->closeLogFile();
         return;
+    }
+
+
+    private function draftNotExistingProducts(){
+        global $wpdb;
+        $allProducts = $wpdb->get_results("SELECT * FROM " . $wpdb->prefix ."posts WHERE post_type='product'");
+        foreach ($allProducts as $key=>$val){
+            if(!in_array($val->ID,$this->includedProducts)&&get_post_status($val->ID)!="trash"){
+                wp_update_post(array(
+                    'ID'    =>  $val->ID,
+                    'post_status'   =>  'draft'
+                ));
+                fwrite($this->logFile , "\n" . "Drafted". $val->ID );
+            }
+        }
     }
 
     private function normalizeAttributesArray($attrArray){
