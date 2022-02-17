@@ -38,30 +38,52 @@ function sepiScripts(){
 
 //AJAX
 function runImport(){
+    $fileName="";
+    $imagesFileName="";
     if($_FILES["sepiFile"]["name"]!=""){
         try{
-
+            
             $pathInfo = pathinfo($_FILES["sepiFile"]["name"]);
-            $fileName = __DIR__ ."/Files/" . time() . ".". $pathInfo["extension"];
+            $fileName = __DIR__ ."/Data/" . time() . ".". $pathInfo["extension"];
+
             move_uploaded_file($_FILES['sepiFile']['tmp_name'], $fileName);
-            $csvp = new CSVParser($fileName);
-            $data = $csvp->getData();
-            $data = array_slice($data,0,10);
-            $we = new WoocommerceEngine($data,$_POST["mode"]);
-            $we->createProducts();
-            //echo json_encode($we->getLogFilePath());
-
-            die();
-
-
         }
         catch(Exception $e){
             echo json_encode($e->getMessage());
             die();
         }
-
-
     }
+    if($_FILES["sepiImagesFile"]["name"]!=""){
+        try{
+            
+            $pathInfo = pathinfo($_FILES["sepiImagesFile"]["name"]);
+            $time =  time() ;
+            $imagesFileName = __DIR__ ."/Images/" . $time . ".". $pathInfo["extension"];
+            $imagesFolder = explode(".",$imagesFileName)[0];
+            $imagesFolderName = $time;
+            echo $imagesFileName;
+            move_uploaded_file($_FILES['sepiImagesFile']['tmp_name'], $imagesFileName);
+            mkdir($imagesFolder,0777,true);
+            $zip = new ZipArchive;
+            if($zip->open($imagesFileName)===TRUE){
+                $zip->extractTo($imagesFolder);
+                $zip->close();
+            }
+        }
+        catch(Exception $e){
+            echo json_encode($e->getMessage());
+            die();
+        }
+    }
+
+    $csvp = new CSVParser($fileName);
+    $data = $csvp->getData();
+    $data = array_slice($data,0,100);
+    $we = new WoocommerceEngine($data,$_POST["mode"],$imagesFolder,$imagesFolderName);
+    $we->createProducts();
+    
+
+    die();
 }
 
 function getLogs(){

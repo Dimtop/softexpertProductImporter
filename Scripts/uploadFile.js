@@ -2,12 +2,18 @@ jQuery("#sepiUpload").click(()=>{
 
     var fd = new FormData();
     var file = jQuery("#sepiFile").prop("files")[0];
+    var imagesFile = jQuery("#sepiImagesFile").prop("files")[0]
     if(!file){
         alert("Please select a file");
         return;
     }
+    if(!imagesFile){
+        alert("Please select an iamges file");
+        return;
+    }
     var mode = jQuery("#sepiMode").val();
     fd.append("sepiFile",file);
+    fd.append("sepiImagesFile",imagesFile);
     fd.append("mode",mode)
     fd.append("action","runImport");
 

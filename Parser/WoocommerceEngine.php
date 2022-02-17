@@ -12,14 +12,20 @@ class WoocommerceEngine{
     private $logFileName;
     private $logFilePath;
     private $mode;
+    private $imagesFolder;
+    private $imagesFolderName;
+    private $images;
     private $includedProducts;
 
-    public function __construct($csvDataToSet,$modeToSet)
+    public function __construct($csvDataToSet,$modeToSet,$imagesFolderToSet,$imagesFolderNameToSet)
     {
         $this->csvData = $csvDataToSet;
         $this->createLogFile();
 
         $this->mode = $modeToSet;
+        $this->imagesFolder = $imagesFolderToSet;
+        $this->imagesFolderName = $imagesFolderNameToSet;
+        $this->images =scandir($this->imagesFolder);
         $this->includedProducts = [];
     }
 
@@ -51,6 +57,8 @@ class WoocommerceEngine{
             "sku"=>$row[8],
             "size"=>$row[2],
             "color"=>$row[5],
+            "colorCode"=>$row[1],
+            "pCode"=>$row[0],
             "parent"=>$row[6],
             "regular_price"=>$row[13]/100,
             "category"=>$row[14],
@@ -65,13 +73,13 @@ class WoocommerceEngine{
         $productData["colors"] = $this->normalizeAttributesArray($productData["colors"]);
 
         if(!$wpdb->get_results("SELECT * FROM " . $wpdb->prefix ."woocommerce_attribute_taxonomies WHERE attribute_name='color'")){
-            fwrite($this->logFile , "\nThe color attribute was not found.");
+            //fwrite($this->logFile , "\nThe color attribute was not found.");
             return array(
                 "error"=>"The color attribute was not found."
             );
         }
         if(!$wpdb->get_results("SELECT * FROM " . $wpdb->prefix ."woocommerce_attribute_taxonomies WHERE attribute_name='size'")){
-            fwrite($this->logFile , "\nThe size attribute was not found.");
+            //fwrite($this->logFile , "\nThe size attribute was not found.");
             return array(
                 "error"=>"The size attribute was not found."
             );
@@ -101,7 +109,7 @@ class WoocommerceEngine{
                 $hierarchy[$parentData["termID"]] = [$childData["termID"]];
             }
             update_option("product_cat_children",serialize($hierarchy),true);
-            fwrite($this->logFile , "\n" . "Updated categories hierarchy. Moving on.");
+            //fwrite($this->logFile , "\n" . "Updated categories hierarchy. Moving on.");
             return $parentData;
 
 
@@ -115,7 +123,7 @@ class WoocommerceEngine{
     private function createTerm($termName,$taxonomy,$parent){
         global $wpdb;
         if(!$this->termExists($termName,$taxonomy,$parent)){
-            fwrite($this->logFile , "\n" . "Term ". $termName ." doesn't exist. Creating the term.");
+           // fwrite($this->logFile , "\n" . "Term ". $termName ." doesn't exist. Creating the term.");
             $wpdb->insert($wpdb->prefix."terms",array(
                 "term_id"=>NULL,
                 "name"=>$termName,
@@ -136,7 +144,7 @@ class WoocommerceEngine{
                 "taxonomyID"=>$taxonomyID
             );
         }else{
-            fwrite($this->logFile , "\n" . "Term ". $termName ." already exists. Doing what's necessary.");
+            //fwrite($this->logFile , "\n" . "Term ". $termName ." already exists. Doing what's necessary.");
             if($parent){
                 $existingTerm  = get_term_by("slug",$this->slugify(trim($termName."-".$parent)),"product_cat");
 
@@ -269,7 +277,7 @@ class WoocommerceEngine{
                 }*/
             }
             //$existingProduct->delete(true);
-            fwrite($this->logFile , "\n" . "The product ID that is going to be used is " . $existingProductID);
+           // fwrite($this->logFile , "\n" . "The product ID that is going to be used is " . $existingProductID);
             return $existingProductID;
         }
         return false;
@@ -348,6 +356,7 @@ class WoocommerceEngine{
     }
 
     private function createVariations($parentProductID,$productData){
+        $imageIDS = [];
         $parentProduct = wc_get_product($parentProductID);
         fwrite($this->logFile , "\n" . "Beginning the creation of variation " .   $productData["sku"]);
         foreach ($productData["variations"] as $key=>$val){
@@ -360,6 +369,7 @@ class WoocommerceEngine{
             );
             $existingVariationID = wc_get_product_id_by_sku( $val["sku"] );
             $existingVariation = wc_get_product($existingVariationID);
+            $isVariationThumbnailSet = false;
             if($existingVariation){
                 fwrite($this->logFile , "\n" . "The variation " . $val["sku"] . " already exists. We will update it." );
                 $currVariationData["ID"] = $existingVariationID;
@@ -371,6 +381,20 @@ class WoocommerceEngine{
                 $currVariation->set_regular_price( $val['regular_price'] );
                 $currVariation->set_manage_stock(false);
                 update_post_meta($existingVariationID,"_stock_status","instock");
+                foreach ($this->images as $im) {  
+                    if (strpos( $im,$val["pCode"]."-".$val["colorCode"]) !== false) {
+                       // fwrite($this->logFile , "\n" .$im);
+                       $imageID = $this->uploadImage($im,$parentProductID);
+                       //set_post_thumbnail( $existingVariationID, $imageID );
+                       if(!in_array($imageID,$imageIDS)){
+                            $imageIDS[] = $imageID;
+                        }
+                       if(!$isVariationThumbnailSet){
+                            set_post_thumbnail( $existingVariationID, $imageID );
+                            $isVariationThumbnailSet=true;
+                        }
+                    }
+                }
                 $currVariation->save();
                 //Include product
                 $this->includedProducts[] = $existingVariationID;
@@ -378,7 +402,7 @@ class WoocommerceEngine{
                 $currVariationID = wp_insert_post( $currVariationData );
                 $currVariation = new WC_Product_Variation( $currVariationID );
 
-                fwrite($this->logFile , "\n" . "Creating the variation's attributes and adding some data." );
+               // fwrite($this->logFile , "\n" . "Creating the variation's attributes and adding some data." );
                 //Attributes
                 $this->writeVariationAttributes($val,$currVariationID);
 
@@ -388,6 +412,21 @@ class WoocommerceEngine{
                 $currVariation->set_regular_price( $val['regular_price'] );
                 $currVariation->set_manage_stock(false);
                 update_post_meta($currVariationID,"_stock_status","instock");
+                //Image
+                $image = "";
+                foreach ($this->images as $im) {   
+                    if (strpos( $im,$val["pCode"]."-".$val["colorCode"]) !== false) {
+                        $imageID = $this->uploadImage($im,$parentProductID);
+                        //set_post_thumbnail( $currVariationID, $imageID );
+                        if(!in_array($imageID,$imageIDS)){
+                            $imageIDS[] = $imageID;
+                        }
+                        if(!$isVariationThumbnailSet){
+                            set_post_thumbnail( $currVariationID, $imageID );
+                            $isVariationThumbnailSet=true;
+                        }
+                    }
+                }
                 $currVariation->save();
                 fwrite($this->logFile , "\n" . "The variation ". $currVariationID . " has been finished." );
 
@@ -397,6 +436,9 @@ class WoocommerceEngine{
 
 
         }
+        echo print_r(implode(',', $imageIDS));
+        set_post_thumbnail( $parentProductID, $imageIDS[0] );
+        update_post_meta($parentProductID, '_product_image_gallery', implode(',', $imageIDS));
     }
 
     public function createProducts(){
@@ -466,6 +508,46 @@ class WoocommerceEngine{
         }
 
         return $parentProducts;
+    }
+
+
+    private function uploadImage($imageName,$postID){
+        $uploadDir= wp_upload_dir(); 
+        $imagePath = site_url() ."/wp-content/plugins/seProductImporter/Images/".$this->imagesFolderName."/".$imageName;//$this->imagesFolder . "/" . $imageName;
+        $imageData= file_get_contents($imagePath);
+        $newImagePath = $uploadDir["path"]."/".$imageName;
+        //fwrite($this->logFile , "\n" . $imagePath );
+
+        if ( file_exists( $uploadDir["path"]."/".$imageName ) ) {
+            /*fwrite($this->logFile , "\n" . $imageName . " EXISTS");
+            $args           = array(
+                'posts_per_page' => 1,
+                'post_type'      => 'attachment',
+                'name'           => trim( $imageName ),
+            );
+
+            $attachments = new WP_Query( $args );
+            fwrite($this->logFile , "\n" . $attachments->posts[0]->ID);
+            return $attachments->posts[0]->ID;*/
+            unlink($uploadDir["path"]."/".$imageName );
+        }
+        return media_sideload_image($imagePath,$postID,'','id');
+        
+ 
+       /* copy($imagePath,$newImagePath);
+        $attachment = array(
+            'post_mime_type' => "image",
+            'post_title'     => sanitize_file_name( $imageName ),
+            'post_content'   => '',
+            'post_parent'=>$postID,
+            'post_status'    => 'inherit'
+        );
+        delete_post_thumbnail($postID);
+        $attachID = wp_insert_attachment( $attachment, $newImagePath, $postID );
+        fwrite($this->logFile , "\n" . "Attach ID " . $attachID  );
+        $attachData = wp_generate_attachment_metadata( $attachID, $newImagePath );
+        wp_update_attachment_metadata( $attachID, $attachData );
+        return $attachID;*/
     }
     private function slugify($str, $options = array()){
         // Make sure string is in UTF-8 and strip invalid UTF-8 characters

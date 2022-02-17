@@ -5,18 +5,7 @@ Initialized import
 
 
 Begenning the creation of product ﻿00108
-Term ΠΡΑΣΙΝ.ΚΥΝ already exists. Doing what's necessary.
-Term ΜΠΛΕ already exists. Doing what's necessary.
-Term    6 already exists. Doing what's necessary.
-Term    9 already exists. Doing what's necessary.
-Term   12 already exists. Doing what's necessary.
-Term   18 already exists. Doing what's necessary.
-Term   24 already exists. Doing what's necessary.
-Term Baby αγορι           already exists. Doing what's necessary.
-Term Μπλουζακι μακρυμανικο     already exists. Doing what's necessary.
-Updated categories hierarchy. Moving on.
 Product ﻿00108 exists. We will update it.
-The product ID that is going to be used is 8597
 Beginning the creation of variation ﻿00108
 The variation 8445054855176 already exists. We will update it.
 The variation 8445054855183 already exists. We will update it.
@@ -28,8 +17,186 @@ The variation 8445054855480 already exists. We will update it.
 The variation 8445054855497 already exists. We will update it.
 The variation 8445054855503 already exists. We will update it.
 The variation 8445054855510 already exists. We will update it.
-Drafted8598
-Drafted8605
-Drafted8610
+The variation 9718 has been finished.
+The variation 9723 has been finished.
+The variation 9728 has been finished.
+The variation 9733 has been finished.
+The variation 9738 has been finished.
+The variation 9743 has been finished.
+The variation 9748 has been finished.
+The variation 9753 has been finished.
+The variation 9759 has been finished.
+The variation 9765 has been finished.
+The variation 9771 has been finished.
+The variation 9777 has been finished.
+The variation 9783 has been finished.
+The variation 9788 has been finished.
+The variation 9793 has been finished.
+The variation 9798 has been finished.
+The variation 9803 has been finished.
+
+
+Begenning the creation of product 00502
+Product 00502 doesn't exist. We will create it.
+Product 9808 has been created. We will now set the attributes, categories and some product data.
+Product 9808 has been finished.
+Beginning the creation of variation 00502
+The variation 9809 has been finished.
+The variation 9813 has been finished.
+The variation 9817 has been finished.
+The variation 9821 has been finished.
+The variation 9825 has been finished.
+
+
+Begenning the creation of product 00513
+Product 00513 doesn't exist. We will create it.
+Product 9829 has been created. We will now set the attributes, categories and some product data.
+Product 9829 has been finished.
+Beginning the creation of variation 00513
+The variation 9830 has been finished.
+The variation 9834 has been finished.
+The variation 9838 has been finished.
+The variation 9842 has been finished.
+The variation 9846 has been finished.
+The variation 9850 has been finished.
+The variation 9854 has been finished.
+
+
+Begenning the creation of product 00516
+Product 00516 doesn't exist. We will create it.
+Product 9858 has been created. We will now set the attributes, categories and some product data.
+Product 9858 has been finished.
+Beginning the creation of variation 00516
+The variation 9859 has been finished.
+The variation 9864 has been finished.
+The variation 9869 has been finished.
+The variation 9874 has been finished.
+The variation 9879 has been finished.
+
+
+Begenning the creation of product 00563
+Product 00563 doesn't exist. We will create it.
+Product 9884 has been created. We will now set the attributes, categories and some product data.
+Product 9884 has been finished.
+Beginning the creation of variation 00563
+The variation 9885 has been finished.
+The variation 9890 has been finished.
+The variation 9895 has been finished.
+The variation 9900 has been finished.
+The variation 9905 has been finished.
+
+
+Begenning the creation of product 00578
+Product 00578 doesn't exist. We will create it.
+Product 9910 has been created. We will now set the attributes, categories and some product data.
+Product 9910 has been finished.
+Beginning the creation of variation 00578
+The variation 9911 has been finished.
+The variation 9916 has been finished.
+The variation 9921 has been finished.
+The variation 9926 has been finished.
+The variation 9931 has been finished.
+The variation 9936 has been finished.
+The variation 9940 has been finished.
+The variation 9944 has been finished.
+The variation 9948 has been finished.
+The variation 9952 has been finished.
+
+
+Begenning the creation of product 02064
+Product 02064 doesn't exist. We will create it.
+Product 9956 has been created. We will now set the attributes, categories and some product data.
+Product 9956 has been finished.
+Beginning the creation of variation 02064
+The variation 9957 has been finished.
+The variation 9962 has been finished.
+The variation 9967 has been finished.
+The variation 9972 has been finished.
+The variation 9977 has been finished.
+
+
+Begenning the creation of product 02066
+Product 02066 doesn't exist. We will create it.
+Product 9982 has been created. We will now set the attributes, categories and some product data.
+Product 9982 has been finished.
+Beginning the creation of variation 02066
+The variation 9983 has been finished.
+The variation 9987 has been finished.
+The variation 9991 has been finished.
+The variation 9995 has been finished.
+The variation 9999 has been finished.
+
+
+Begenning the creation of product 02067
+Product 02067 doesn't exist. We will create it.
+Product 10003 has been created. We will now set the attributes, categories and some product data.
+Product 10003 has been finished.
+Beginning the creation of variation 02067
+The variation 10004 has been finished.
+The variation 10009 has been finished.
+The variation 10014 has been finished.
+The variation 10019 has been finished.
+The variation 10024 has been finished.
+
+
+Begenning the creation of product 02068
+Product 02068 doesn't exist. We will create it.
+Product 10029 has been created. We will now set the attributes, categories and some product data.
+Product 10029 has been finished.
+Beginning the creation of variation 02068
+The variation 10030 has been finished.
+The variation 10035 has been finished.
+The variation 10040 has been finished.
+The variation 10045 has been finished.
+The variation 10050 has been finished.
+
+
+Begenning the creation of product 02069
+Product 02069 doesn't exist. We will create it.
+Product 10055 has been created. We will now set the attributes, categories and some product data.
+Product 10055 has been finished.
+Beginning the creation of variation 02069
+The variation 10056 has been finished.
+The variation 10062 has been finished.
+The variation 10068 has been finished.
+The variation 10074 has been finished.
+The variation 10080 has been finished.
+
+
+Begenning the creation of product 02074
+Product 02074 doesn't exist. We will create it.
+Product 10086 has been created. We will now set the attributes, categories and some product data.
+Product 10086 has been finished.
+Beginning the creation of variation 02074
+The variation 10087 has been finished.
+The variation 10093 has been finished.
+The variation 10099 has been finished.
+The variation 10105 has been finished.
+The variation 10111 has been finished.
+
+
+Begenning the creation of product 02082
+Product 02082 doesn't exist. We will create it.
+Product 10117 has been created. We will now set the attributes, categories and some product data.
+Product 10117 has been finished.
+Beginning the creation of variation 02082
+The variation 10118 has been finished.
+The variation 10123 has been finished.
+The variation 10128 has been finished.
+The variation 10133 has been finished.
+The variation 10138 has been finished.
+The variation 10143 has been finished.
+The variation 10148 has been finished.
+The variation 10153 has been finished.
+The variation 10158 has been finished.
+The variation 10163 has been finished.
+
+
+Begenning the creation of product 02140
+Product 02140 doesn't exist. We will create it.
+Product 10168 has been created. We will now set the attributes, categories and some product data.
+Product 10168 has been finished.
+Beginning the creation of variation 02140
+The variation 10169 has been finished.
 
 Done!!!!
